@@ -1,7 +1,10 @@
-FROM docker.io/openjdk:8-jre
+FROM centos
 
-MAINTAINER Hygieia@capitalone.com
+RUN yum install -y \
+       java-1.8.0-openjdk \
+       java-1.8.0-openjdk-devel
 
+ENV JAVA_HOME /etc/alternatives/jre
 RUN mkdir /hygieia /hygieia/config
 
 COPY hygieia/ /hygieia
